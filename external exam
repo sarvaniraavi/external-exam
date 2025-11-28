@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student List Pagination</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .student-list { margin-bottom: 20px; }
+        .pagination button { margin: 5px; padding: 8px 12px; }
+    </style>
+</head>
+<body>
+    <h2>Student List</h2>
+    <div class="student-list" id="studentList"></div>
+    <div class="pagination">
+        <button id="prevBtn">Previous</button>
+        <span id="pageInfo"></span>
+        <button id="nextBtn">Next</button>
+    </div>
+
+    <script>
+        const students = [
+            "Student 1", "Student 2", "Student 3", "Student 4", "Student 5",
+            "Student 6", "Student 7", "Student 8", "Student 9", "Student 10",
+            "Student 11", "Student 12", "Student 13", "Student 14", "Student 15",
+            "Student 16", "Student 17", "Student 18", "Student 19", "Student 20",
+            "Student 21", "Student 22", "Student 23", "Student 24", "Student 25"
+        (currentPage - 1) * studentsPerPage;
+            const endIndex = startIndex + studentsPerPage;
+            const currentStudents = students.slice(startIndex, endIndex);
+
+            document.getElementById('studentList').innerHTML =
+                currentStudents.map(s => `<p>${s}</p>`).join('');
+
+            document.getElementById('pageInfo').textContent =
+               prevBtn').addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                renderStudents();
+            }
+        });
+
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            if (currentPage < Math.ceil(students.length / studentsPerPage)) {
+                currentPage++;
+                renderStudents();
+            }
+        });
+
+        renderStudents();
+    </script>
+</body>
+</html>
